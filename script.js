@@ -2,7 +2,7 @@
 function sendMessage() {
     var name = document.getElementById("name").value;
     var message = document.getElementById("message").value;
-    var webhook = "webhook hidden";  // Replace with your actual webhook URL
+    var webhook = "https://discord.com/api/webhooks/1260563092325269617/NJ9oZb9YbsWzSxiayfrj-bbGy509Fz9MKH0Y2oQwbeB23qc68gcWl2w4Lh9RKT545soX";  // Replace with your actual webhook URL
     var content = `senders name: ${name} \nmessage: ${message}`;
     
     // Create the JSON payload
