@@ -1,0 +1,35 @@
+// Define the sendMessage function
+function sendMessage() {
+    var name = document.getElementById("name").value;
+    var message = document.getElementById("message").value;
+    var webhook = "webhook hidden";  // Replace with your actual webhook URL
+    var content = `senders name: ${name} \nmessage: ${message}`;
+    
+    // Create the JSON payload
+    var params = {
+        content: content
+    };
+    
+    console.log('Payload:', JSON.stringify(params));  // Debugging: Log the payload
+
+    var request = new XMLHttpRequest();
+    request.open("POST", webhook, true);
+    request.setRequestHeader('Content-type', 'application/json');
+    
+    request.onreadystatechange = function() {
+        if (request.readyState === 4) {
+            console.log('Response:', request.responseText);  // Debugging: Log the response
+            if (request.status === 200) {
+                alert('Message sent successfully!');
+            } else {
+                alert('Error sending message: ' + request.status + ' ' + request.statusText);
+            }
+        }
+    };
+    
+    // Send the JSON payload
+    request.send(JSON.stringify(params));
+}
+
+// Add an event listener to the button
+document.getElementById("send").addEventListener("click", sendMessage);
