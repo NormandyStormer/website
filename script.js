@@ -19,7 +19,7 @@ function sendMessage() {
     request.onreadystatechange = function() {
         if (request.readyState === 4) {
             console.log('Response:', request.responseText);  // Debugging: Log the response
-            if (request.status === 200) {
+            if (request.status === 204) {
                 alert('Message sent successfully!');
             } else {
                 alert('Error sending message: ' + request.status + ' ' + request.statusText);
